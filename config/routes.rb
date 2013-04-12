@@ -1,6 +1,6 @@
 RailsStore::Application.routes.draw do
 
-  resources :reviews
+  resources :reviews, :only => [:new, :create]
 
   resources :products
 
@@ -47,14 +47,12 @@ RailsStore::Application.routes.draw do
   #     resources :products
   #   end
 
-  root :to => 'application#home'
-
-  get '/home' => 'application#home' 
+  root :to => 'products#index'
 
   get '/reviews/new/:id' => 'reviews#new'
 
-  get '/products/:id/addcart' => 'products#addcart'
-  get '/products/:id/remcart' => 'products#remcart'
+  match '/products/:id/addcart' => 'products#addcart'
+  match '/products/:id/remcart' => 'products#remcart'
 
   # get '/products/:id'  => 'products#show'
    

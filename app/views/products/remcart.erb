@@ -1,0 +1,10 @@
+    <%= form_for @product do |f| %>
+      <% if @product.in_cart%>
+        <%= f.hidden_field :in_cart, :value => false %>
+        <%= f.submit "Remove from Cart" %>
+      <% end %>
+    <% end %>
+
+      <script type="text/javascript">
+    window.location.href="/" 
+  </script>

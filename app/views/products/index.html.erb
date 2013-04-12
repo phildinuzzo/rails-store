@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Price</th>
-    <th></th>
+    <th>Add to Cart</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,6 +13,23 @@
   <tr>
     <td><%= product.name %></td>
     <td><%= product.price %></td>
+    <td>
+
+<% if !product.in_cart %>
+<button>
+<a href="/products/<%= product.id %>/addcart">Add to Cart</a>
+</button>
+<% else %>
+<button>
+<a href="/products/<%= product.id %>/remcart">Remove from Cart</a>
+</button>
+<% end %>
+<!--       <form action='/products/:id/addcart' method='post'>   
+        <input type='hidden' value='product.in_cart'/>
+        <button>Add to Cart</button>
+      </form> -->
+    </td>
+
     <td><a href="/reviews/new/<%= product.id %>">Review!</a></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>
@@ -27,4 +44,6 @@
 <br />
 
 <%= link_to 'New Product', new_product_path %>
+
+<%= link_to 'Home', home_path %>
 

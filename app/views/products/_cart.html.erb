@@ -1,3 +1,20 @@
 
+Cart:
+<% @x = 0.0 %>
 
-<%= @products_in_cart  %>
+<% @products_in_cart.each_index do |i|%>
+<%= @products_in_cart[i]["name"] %>
+<%= @products_in_cart[i]["price"] %>
+<% end %>
+<p>
+
+
+
+Total: 
+
+<% @products_in_cart.each_index do |i| %>
+<% @x += @products_in_cart[i]["price"]%>
+<% end %>
+
+<%= @x %>
+
