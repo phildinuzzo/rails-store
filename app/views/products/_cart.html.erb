@@ -4,7 +4,7 @@ Cart:
 
 <% @products_in_cart.each_index do |i|%>
 <%= @products_in_cart[i]["name"] %>
-<%= @products_in_cart[i]["price"] %>
+<%= number_to_currency@products_in_cart[i]["price"] %>
 <% end %>
 <p>
 
@@ -16,5 +16,5 @@ Total:
 <% @x += @products_in_cart[i]["price"]%>
 <% end %>
 
-<%= @x %>
+<%= number_to_currency@x %>
 
