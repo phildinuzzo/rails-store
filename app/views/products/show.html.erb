@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+
+
+<% @review.each_index do |i|   %>
+
+  <b>Body:</b>
+  <%= @review[i]["body"] %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @review[i]["rating"] %>
+</p>
+
+
+<% end %>
+
+<%= render 'cart' %>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
